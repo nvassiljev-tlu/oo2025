@@ -23,15 +23,12 @@ public class CategoryController {
         if (category.getId() != null) {
             throw new RuntimeException("err_category_id_not_null");
         }
-        if (category.getPrice() <= 0) {
-            throw new RuntimeException("err_category_price_negative");
-        }
         categoryRepository.save(category);
         return categoryRepository.findAll();
     }
 
     @DeleteMapping("categories/{id}")
-    public List<Category> deleteCategories(@PathVariable Long id) {
+    public List<Category> deleteCategory(@PathVariable Long id) {
         categoryRepository.deleteById(id);
         return categoryRepository.findAll();
     }
