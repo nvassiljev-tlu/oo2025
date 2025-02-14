@@ -8,24 +8,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+//import jakarta.persistence.Table;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
-public class Product {
+// @Table(name = "categories")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private double price;
-    private String image; // .jpg
-    private boolean active;
-
-//    public void setPrice(double price) {
-//        this.price = price;
-//        System.out.println("Kasutaja xxx muutis hinda. ID: " + this.id);
-//    }
+    // private boolean active;
 }
