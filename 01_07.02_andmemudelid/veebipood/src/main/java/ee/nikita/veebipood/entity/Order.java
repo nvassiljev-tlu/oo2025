@@ -6,26 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
-public class Product {
+@Table(name = "orders")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private double price;
-    private String image; // .jpg
-    private boolean active;
-
+    private Date created;
     @ManyToOne
-    private Category category;
-
-//    public void setPrice(double price) {
-//        this.price = price;
-//        System.out.println("Kasutaja xxx muutis hinda. ID: " + this.id);
-//    }
+    private Person person;
+    @ManyToMany
+    private List<Product> products;
+    private Double totalSum;
 }
